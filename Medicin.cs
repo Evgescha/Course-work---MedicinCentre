@@ -110,5 +110,14 @@ namespace MedicinCentre
         {
             MedicinCentre.Menu.menu.Show();
         }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8) // цифры и клавиша BackSpace
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

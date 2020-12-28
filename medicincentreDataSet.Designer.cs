@@ -2152,10 +2152,10 @@ namespace MedicinCentre {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public warehouseRow AddwarehouseRow(int id, medicinRow parentmedicinRowBywarehouse_ibfk_1, int count) {
+            public warehouseRow AddwarehouseRow(medicinRow parentmedicinRowBywarehouse_ibfk_1, int count) {
                 warehouseRow rowwarehouseRow = ((warehouseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         null,
                         count};
                 if ((parentmedicinRowBywarehouse_ibfk_1 != null)) {
@@ -2206,6 +2206,9 @@ namespace MedicinCentre {
                 base.Columns.Add(this.columncount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }

@@ -37,15 +37,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
-            this.medicinBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medicinTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.medicinTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
+            this.medicinTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.medicinTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -54,6 +54,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 20);
             this.textBox2.TabIndex = 10;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox1
             // 
@@ -131,20 +132,6 @@
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // medicincentreDataSet
-            // 
-            this.medicincentreDataSet.DataSetName = "medicincentreDataSet";
-            this.medicincentreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // medicinBindingSource
-            // 
-            this.medicinBindingSource.DataMember = "medicin";
-            this.medicinBindingSource.DataSource = this.medicincentreDataSet;
-            // 
-            // medicinTableAdapter
-            // 
-            this.medicinTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -167,6 +154,20 @@
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // medicinBindingSource
+            // 
+            this.medicinBindingSource.DataMember = "medicin";
+            this.medicinBindingSource.DataSource = this.medicincentreDataSet;
+            // 
+            // medicincentreDataSet
+            // 
+            this.medicincentreDataSet.DataSetName = "medicincentreDataSet";
+            this.medicincentreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // medicinTableAdapter
+            // 
+            this.medicinTableAdapter.ClearBeforeFill = true;
+            // 
             // Medicin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,8 +186,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Medicin_FormClosing);
             this.Load += new System.EventHandler(this.Medicin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
