@@ -179,6 +179,7 @@
             this.whatDataGridViewTextBoxColumn.HeaderText = "what";
             this.whatDataGridViewTextBoxColumn.Name = "whatDataGridViewTextBoxColumn";
             this.whatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.whatDataGridViewTextBoxColumn.Visible = false;
             // 
             // countDataGridViewTextBoxColumn
             // 
