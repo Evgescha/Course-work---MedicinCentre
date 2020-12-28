@@ -106,6 +106,12 @@
     <Compile Include="Warehouse.Designer.cs">
       <DependentUpon>Warehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Продажа.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Продажа.Designer.cs">
+      <DependentUpon>Продажа.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Client.resx">
       <DependentUpon>Client.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Warehouse.resx">
       <DependentUpon>Warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Продажа.resx">
+      <DependentUpon>Продажа.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="medicincentreDataSet.xsc">
       <DependentUpon>medicincentreDataSet.xsd</DependentUpon>

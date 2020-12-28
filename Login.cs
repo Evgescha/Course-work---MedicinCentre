@@ -12,7 +12,9 @@ namespace MedicinCentre
 {
     public partial class Login : Form
     {
-        int rowForUser=-1;
+        public static int rowForUser = -1;
+        public static int idUser = -1;
+        public static string fio = "";
         public static Login login;
         public Login()
         {
@@ -46,6 +48,8 @@ namespace MedicinCentre
                     && dataGridView1[5, i].Value.ToString().Equals(pass)
                     && int.Parse(dataGridView1[6, i].Value.ToString()) == 2) {
                     rowForUser = i;
+                    idUser = int.Parse(dataGridView1[0, i].Value.ToString());
+                    fio = dataGridView1[1, i].Value.ToString();
                     isHas = true;
                 }
             }

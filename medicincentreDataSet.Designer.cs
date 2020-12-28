@@ -1495,10 +1495,10 @@ namespace MedicinCentre {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sellRow AddsellRow(int id, usersRow parentusersRowBysell_ibfk_1, usersRow parentusersRowBysell_ibfk_2, medicinRow parentmedicinRowBysell_ibfk_3, System.DateTime whenD, int count) {
+            public sellRow AddsellRow(usersRow parentusersRowBysell_ibfk_1, usersRow parentusersRowBysell_ibfk_2, medicinRow parentmedicinRowBysell_ibfk_3, System.DateTime whenD, int count) {
                 sellRow rowsellRow = ((sellRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         null,
                         null,
                         null,
@@ -1567,6 +1567,8 @@ namespace MedicinCentre {
                 base.Columns.Add(this.columncount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }
@@ -6162,7 +6164,7 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `id`, `fio`, `adres`, `phone`, `login`, `password`, `role` FROM `users`";
@@ -6172,6 +6174,11 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
             this._commandCollection[1].CommandText = "SELECT `id`, `fio`, `adres`, `phone`, `login`, `password`, `role` FROM `users` wh" +
                 "ere role=1";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `id`, `fio`, `adres`, `phone`, `login`, `password`, `role` FROM `users` wh" +
+                "ere role=2";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6217,6 +6224,30 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual medicincentreDataSet.usersDataTable GetDataByOnlyClient() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            medicincentreDataSet.usersDataTable dataTable = new medicincentreDataSet.usersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOnlyEmployee(medicincentreDataSet.usersDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual medicincentreDataSet.usersDataTable GetDataByOnlyEmployee() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             medicincentreDataSet.usersDataTable dataTable = new medicincentreDataSet.usersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
