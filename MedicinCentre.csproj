@@ -63,6 +63,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicin.Designer.cs">
+      <DependentUpon>Medicin.cs</DependentUpon>
+    </Compile>
     <Compile Include="medicincentreDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medicin.resx">
+      <DependentUpon>Medicin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

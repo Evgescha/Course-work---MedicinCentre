@@ -899,10 +899,10 @@ namespace MedicinCentre {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public medicinRow AddmedicinRow(int id, string name, float price) {
+            public medicinRow AddmedicinRow(string name, float price) {
                 medicinRow rowmedicinRow = ((medicinRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         name,
                         price};
                 rowmedicinRow.ItemArray = columnValuesArray;
@@ -950,6 +950,9 @@ namespace MedicinCentre {
                 base.Columns.Add(this.columnprice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnname.MaxLength = 50;

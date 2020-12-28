@@ -12,14 +12,27 @@ namespace MedicinCentre
 {
     public partial class Menu : Form
     {
+        public static Menu menu;
         public Menu()
         {
             InitializeComponent();
+            menu = this;
         }
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Login.login.Show();
+        }
+        //medicin
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Medicin().Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
