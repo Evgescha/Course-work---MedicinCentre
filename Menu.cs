@@ -18,7 +18,11 @@ namespace MedicinCentre
             InitializeComponent();
             menu = this;
         }
+        private void Menu_Load(object sender, EventArgs e)
+        {
 
+        }
+        //close window
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Login.login.Show();
@@ -30,19 +34,23 @@ namespace MedicinCentre
             new Medicin().Show();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
         //warehouse
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new Warehouse().Show();
         }
         //delivery
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new Delivery().Show();
+        }
+        //client
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Client().Show();
         }
     }
 }

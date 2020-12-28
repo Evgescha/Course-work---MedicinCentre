@@ -68,7 +68,7 @@
               <Mapping SourceColumn="count" DataSetColumn="count" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="medicincentreConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertInWarehouse" Modifier="Public" Name="InsertInWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertInWarehouse">
+              <DbSource ConnectionRef="medicincentreConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertInWarehouse" Modifier="Public" Name="InsertInWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertInWarehouse">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO `warehouse` (id,`what`, `count`) VALUES (-1,@what, @count)</CommandText>
@@ -79,7 +79,7 @@
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="medicincentreConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWarehouseMedicinCountQuery" Modifier="Public" Name="UpdateWarehouseMedicinCountQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateWarehouseMedicinCountQuery">
+              <DbSource ConnectionRef="medicincentreConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWarehouseMedicinCountQuery" Modifier="Public" Name="UpdateWarehouseMedicinCountQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateWarehouseMedicinCountQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE `warehouse` SET 
@@ -353,7 +353,16 @@
               <Mapping SourceColumn="password" DataSetColumn="password" />
               <Mapping SourceColumn="role" DataSetColumn="role" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="medicincentreConnectionString (Settings)" DbObjectName="medicincentre.users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByOnlyClient" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByOnlyClient" GeneratorSourceName="FillByOnlyClient" GetMethodModifier="Public" GetMethodName="GetDataByOnlyClient" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByOnlyClient" UserSourceName="FillByOnlyClient">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `id`, `fio`, `adres`, `phone`, `login`, `password`, `role` FROM `users` where role=1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="warehouseTableAdapter" GeneratorDataComponentClassName="warehouseTableAdapter" Name="warehouse" UserDataComponentName="warehouseTableAdapter">
             <MainSource>
@@ -418,7 +427,7 @@
   <xs:element name="medicincentreDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="medicincentreDataSet" msprop:Generator_UserDSName="medicincentreDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="delivery" msprop:Generator_TableClassName="deliveryDataTable" msprop:Generator_TableVarName="tabledelivery" msprop:Generator_RowChangedName="deliveryRowChanged" msprop:Generator_TablePropName="delivery" msprop:Generator_RowDeletingName="deliveryRowDeleting" msprop:Generator_RowChangingName="deliveryRowChanging" msprop:Generator_RowEvHandlerName="deliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="deliveryRowDeleted" msprop:Generator_RowClassName="deliveryRow" msprop:Generator_UserTableName="delivery" msprop:Generator_RowEvArgName="deliveryRowChangeEvent">
+        <xs:element name="delivery" msprop:Generator_TableClassName="deliveryDataTable" msprop:Generator_TableVarName="tabledelivery" msprop:Generator_TablePropName="delivery" msprop:Generator_RowDeletingName="deliveryRowDeleting" msprop:Generator_RowChangingName="deliveryRowChanging" msprop:Generator_RowEvHandlerName="deliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="deliveryRowDeleted" msprop:Generator_UserTableName="delivery" msprop:Generator_RowChangedName="deliveryRowChanged" msprop:Generator_RowEvArgName="deliveryRowChangeEvent" msprop:Generator_RowClassName="deliveryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -428,7 +437,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="medicin" msprop:Generator_TableClassName="medicinDataTable" msprop:Generator_TableVarName="tablemedicin" msprop:Generator_RowChangedName="medicinRowChanged" msprop:Generator_TablePropName="medicin" msprop:Generator_RowDeletingName="medicinRowDeleting" msprop:Generator_RowChangingName="medicinRowChanging" msprop:Generator_RowEvHandlerName="medicinRowChangeEventHandler" msprop:Generator_RowDeletedName="medicinRowDeleted" msprop:Generator_RowClassName="medicinRow" msprop:Generator_UserTableName="medicin" msprop:Generator_RowEvArgName="medicinRowChangeEvent">
+        <xs:element name="medicin" msprop:Generator_TableClassName="medicinDataTable" msprop:Generator_TableVarName="tablemedicin" msprop:Generator_TablePropName="medicin" msprop:Generator_RowDeletingName="medicinRowDeleting" msprop:Generator_RowChangingName="medicinRowChanging" msprop:Generator_RowEvHandlerName="medicinRowChangeEventHandler" msprop:Generator_RowDeletedName="medicinRowDeleted" msprop:Generator_UserTableName="medicin" msprop:Generator_RowChangedName="medicinRowChanged" msprop:Generator_RowEvArgName="medicinRowChangeEvent" msprop:Generator_RowClassName="medicinRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -443,7 +452,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="role" msprop:Generator_TableClassName="roleDataTable" msprop:Generator_TableVarName="tablerole" msprop:Generator_RowChangedName="roleRowChanged" msprop:Generator_TablePropName="role" msprop:Generator_RowDeletingName="roleRowDeleting" msprop:Generator_RowChangingName="roleRowChanging" msprop:Generator_RowEvHandlerName="roleRowChangeEventHandler" msprop:Generator_RowDeletedName="roleRowDeleted" msprop:Generator_RowClassName="roleRow" msprop:Generator_UserTableName="role" msprop:Generator_RowEvArgName="roleRowChangeEvent">
+        <xs:element name="role" msprop:Generator_TableClassName="roleDataTable" msprop:Generator_TableVarName="tablerole" msprop:Generator_TablePropName="role" msprop:Generator_RowDeletingName="roleRowDeleting" msprop:Generator_RowChangingName="roleRowChanging" msprop:Generator_RowEvHandlerName="roleRowChangeEventHandler" msprop:Generator_RowDeletedName="roleRowDeleted" msprop:Generator_UserTableName="role" msprop:Generator_RowChangedName="roleRowChanged" msprop:Generator_RowEvArgName="roleRowChangeEvent" msprop:Generator_RowClassName="roleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -457,7 +466,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sell" msprop:Generator_TableClassName="sellDataTable" msprop:Generator_TableVarName="tablesell" msprop:Generator_RowChangedName="sellRowChanged" msprop:Generator_TablePropName="sell" msprop:Generator_RowDeletingName="sellRowDeleting" msprop:Generator_RowChangingName="sellRowChanging" msprop:Generator_RowEvHandlerName="sellRowChangeEventHandler" msprop:Generator_RowDeletedName="sellRowDeleted" msprop:Generator_RowClassName="sellRow" msprop:Generator_UserTableName="sell" msprop:Generator_RowEvArgName="sellRowChangeEvent">
+        <xs:element name="sell" msprop:Generator_TableClassName="sellDataTable" msprop:Generator_TableVarName="tablesell" msprop:Generator_TablePropName="sell" msprop:Generator_RowDeletingName="sellRowDeleting" msprop:Generator_RowChangingName="sellRowChanging" msprop:Generator_RowEvHandlerName="sellRowChangeEventHandler" msprop:Generator_RowDeletedName="sellRowDeleted" msprop:Generator_UserTableName="sell" msprop:Generator_RowChangedName="sellRowChanged" msprop:Generator_RowEvArgName="sellRowChangeEvent" msprop:Generator_RowClassName="sellRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -469,7 +478,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -512,7 +521,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="warehouse" msprop:Generator_TableClassName="warehouseDataTable" msprop:Generator_TableVarName="tablewarehouse" msprop:Generator_RowChangedName="warehouseRowChanged" msprop:Generator_TablePropName="warehouse" msprop:Generator_RowDeletingName="warehouseRowDeleting" msprop:Generator_RowChangingName="warehouseRowChanging" msprop:Generator_RowEvHandlerName="warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="warehouseRowDeleted" msprop:Generator_RowClassName="warehouseRow" msprop:Generator_UserTableName="warehouse" msprop:Generator_RowEvArgName="warehouseRowChangeEvent">
+        <xs:element name="warehouse" msprop:Generator_TableClassName="warehouseDataTable" msprop:Generator_TableVarName="tablewarehouse" msprop:Generator_TablePropName="warehouse" msprop:Generator_RowDeletingName="warehouseRowDeleting" msprop:Generator_RowChangingName="warehouseRowChanging" msprop:Generator_RowEvHandlerName="warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="warehouseRowDeleted" msprop:Generator_UserTableName="warehouse" msprop:Generator_RowChangedName="warehouseRowChanged" msprop:Generator_RowEvArgName="warehouseRowChangeEvent" msprop:Generator_RowClassName="warehouseRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -550,12 +559,12 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="delivery_ibfk_1" msdata:parent="medicin" msdata:child="delivery" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="delivery" msprop:Generator_ChildPropName="GetdeliveryRows" msprop:Generator_UserRelationName="delivery_ibfk_1" msprop:Generator_ParentPropName="medicinRow" msprop:Generator_RelationVarName="relationdelivery_ibfk_1" msprop:Generator_UserParentTable="medicin" />
-      <msdata:Relationship name="sell_ibfk_1" msdata:parent="users" msdata:child="sell" msdata:parentkey="id" msdata:childkey="who" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRowsBysell_ibfk_1" msprop:Generator_UserRelationName="sell_ibfk_1" msprop:Generator_ParentPropName="usersRowBysell_ibfk_1" msprop:Generator_RelationVarName="relationsell_ibfk_1" msprop:Generator_UserParentTable="users" />
-      <msdata:Relationship name="sell_ibfk_2" msdata:parent="users" msdata:child="sell" msdata:parentkey="id" msdata:childkey="toWho" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRowsBysell_ibfk_2" msprop:Generator_UserRelationName="sell_ibfk_2" msprop:Generator_ParentPropName="usersRowBysell_ibfk_2" msprop:Generator_RelationVarName="relationsell_ibfk_2" msprop:Generator_UserParentTable="users" />
-      <msdata:Relationship name="sell_ibfk_3" msdata:parent="medicin" msdata:child="sell" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRows" msprop:Generator_UserRelationName="sell_ibfk_3" msprop:Generator_RelationVarName="relationsell_ibfk_3" msprop:Generator_UserParentTable="medicin" msprop:Generator_ParentPropName="medicinRow" />
-      <msdata:Relationship name="users_ibfk_1" msdata:parent="role" msdata:child="users" msdata:parentkey="id" msdata:childkey="role" msprop:Generator_UserChildTable="users" msprop:Generator_ChildPropName="GetusersRows" msprop:Generator_UserRelationName="users_ibfk_1" msprop:Generator_RelationVarName="relationusers_ibfk_1" msprop:Generator_UserParentTable="role" msprop:Generator_ParentPropName="roleRow" />
-      <msdata:Relationship name="warehouse_ibfk_1" msdata:parent="medicin" msdata:child="warehouse" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="warehouse" msprop:Generator_ChildPropName="GetwarehouseRows" msprop:Generator_UserRelationName="warehouse_ibfk_1" msprop:Generator_RelationVarName="relationwarehouse_ibfk_1" msprop:Generator_UserParentTable="medicin" msprop:Generator_ParentPropName="medicinRow" />
+      <msdata:Relationship name="delivery_ibfk_1" msdata:parent="medicin" msdata:child="delivery" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="delivery" msprop:Generator_ChildPropName="GetdeliveryRows" msprop:Generator_UserRelationName="delivery_ibfk_1" msprop:Generator_RelationVarName="relationdelivery_ibfk_1" msprop:Generator_UserParentTable="medicin" msprop:Generator_ParentPropName="medicinRow" />
+      <msdata:Relationship name="sell_ibfk_1" msdata:parent="users" msdata:child="sell" msdata:parentkey="id" msdata:childkey="who" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRowsBysell_ibfk_1" msprop:Generator_UserRelationName="sell_ibfk_1" msprop:Generator_RelationVarName="relationsell_ibfk_1" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRowBysell_ibfk_1" />
+      <msdata:Relationship name="sell_ibfk_2" msdata:parent="users" msdata:child="sell" msdata:parentkey="id" msdata:childkey="toWho" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRowsBysell_ibfk_2" msprop:Generator_UserRelationName="sell_ibfk_2" msprop:Generator_RelationVarName="relationsell_ibfk_2" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRowBysell_ibfk_2" />
+      <msdata:Relationship name="sell_ibfk_3" msdata:parent="medicin" msdata:child="sell" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="sell" msprop:Generator_ChildPropName="GetsellRows" msprop:Generator_UserRelationName="sell_ibfk_3" msprop:Generator_ParentPropName="medicinRow" msprop:Generator_RelationVarName="relationsell_ibfk_3" msprop:Generator_UserParentTable="medicin" />
+      <msdata:Relationship name="users_ibfk_1" msdata:parent="role" msdata:child="users" msdata:parentkey="id" msdata:childkey="role" msprop:Generator_UserChildTable="users" msprop:Generator_ChildPropName="GetusersRows" msprop:Generator_UserRelationName="users_ibfk_1" msprop:Generator_ParentPropName="roleRow" msprop:Generator_RelationVarName="relationusers_ibfk_1" msprop:Generator_UserParentTable="role" />
+      <msdata:Relationship name="warehouse_ibfk_1" msdata:parent="medicin" msdata:child="warehouse" msdata:parentkey="id" msdata:childkey="what" msprop:Generator_UserChildTable="warehouse" msprop:Generator_ChildPropName="GetwarehouseRows" msprop:Generator_UserRelationName="warehouse_ibfk_1" msprop:Generator_ParentPropName="medicinRow" msprop:Generator_RelationVarName="relationwarehouse_ibfk_1" msprop:Generator_UserParentTable="medicin" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
