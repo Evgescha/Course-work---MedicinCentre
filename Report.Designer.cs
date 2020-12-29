@@ -1,6 +1,6 @@
 ﻿namespace MedicinCentre
 {
-    partial class Продажа
+    partial class Report
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.medicinBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,18 +44,36 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sellBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button4 = new System.Windows.Forms.Button();
             this.sellTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.sellTableAdapter();
             this.usersTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.usersTableAdapter();
-            this.medicincentreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.medicinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.medicinTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.medicinTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.sellBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.usersBindingSource;
+            this.comboBox2.DisplayMember = "fio";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(118, 12);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(167, 21);
+            this.comboBox2.TabIndex = 35;
+            this.comboBox2.ValueMember = "id";
             // 
             // usersBindingSource
             // 
@@ -78,126 +85,14 @@
             this.medicincentreDataSet.DataSetName = "medicincentreDataSet";
             this.medicincentreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Кто продал";
-            this.label1.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DataSource = this.usersBindingSource;
-            this.comboBox2.DisplayMember = "fio";
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(113, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(167, 21);
-            this.comboBox2.TabIndex = 33;
-            this.comboBox2.ValueMember = "id";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 38);
+            this.label2.Location = new System.Drawing.Point(17, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Кому продал";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DataSource = this.medicinBindingSource;
-            this.comboBox3.DisplayMember = "name";
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(113, 62);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(167, 21);
-            this.comboBox3.TabIndex = 35;
-            this.comboBox3.ValueMember = "id";
-            // 
-            // medicinBindingSource
-            // 
-            this.medicinBindingSource.DataMember = "medicin";
-            this.medicinBindingSource.DataSource = this.medicincentreDataSet;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Что продал";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(113, 89);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 38;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Когда";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Количество";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(113, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(167, 20);
-            this.textBox2.TabIndex = 37;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(265, 23);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(15, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(265, 23);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Редактировать";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(15, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(265, 23);
-            this.button3.TabIndex = 45;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Человек";
             // 
             // dataGridView1
             // 
@@ -219,12 +114,11 @@
             this.Column2,
             this.Column3});
             this.dataGridView1.DataSource = this.sellBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(298, 11);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 251);
-            this.dataGridView1.TabIndex = 46;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            this.dataGridView1.Size = new System.Drawing.Size(673, 215);
+            this.dataGridView1.TabIndex = 47;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -295,6 +189,16 @@
             this.sellBindingSource.DataMember = "sell";
             this.sellBindingSource.DataSource = this.medicincentreDataSet;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(291, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(390, 23);
+            this.button4.TabIndex = 49;
+            this.button4.Text = "Отобразить все, что продал выбранный человек человек";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // sellTableAdapter
             // 
             this.sellTableAdapter.ClearBeforeFill = true;
@@ -303,80 +207,106 @@
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
             // 
-            // medicincentreDataSetBindingSource
+            // comboBox3
             // 
-            this.medicincentreDataSetBindingSource.DataSource = this.medicincentreDataSet;
-            this.medicincentreDataSetBindingSource.Position = 0;
+            this.comboBox3.DataSource = this.medicinBindingSource;
+            this.comboBox3.DisplayMember = "name";
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(118, 50);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(167, 21);
+            this.comboBox3.TabIndex = 50;
+            this.comboBox3.ValueMember = "id";
+            // 
+            // medicinBindingSource
+            // 
+            this.medicinBindingSource.DataMember = "medicin";
+            this.medicinBindingSource.DataSource = this.medicincentreDataSet;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Лекарства";
             // 
             // medicinTableAdapter
             // 
             this.medicinTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 47;
-            this.textBox1.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Показано для: ";
             // 
-            // Продажа
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(115, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 53;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(291, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(390, 23);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Отобразить всех, кто купил данное лекарство";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // sellBindingSource1
+            // 
+            this.sellBindingSource1.DataMember = "sell";
+            this.sellBindingSource1.DataSource = this.medicincentreDataSet;
+            // 
+            // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 274);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(699, 345);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Продажа";
-            this.Text = "Продажа";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Продажа_FormClosing);
-            this.Load += new System.EventHandler(this.Продажа_Load);
+            this.Name = "Report";
+            this.Text = "Отчеты";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Report_FormClosing);
+            this.Load += new System.EventHandler(this.Report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button4;
         private medicincentreDataSet medicincentreDataSet;
         private System.Windows.Forms.BindingSource sellBindingSource;
         private medicincentreDataSetTableAdapters.sellTableAdapter sellTableAdapter;
-        private System.Windows.Forms.BindingSource usersBindingSource;
-        private medicincentreDataSetTableAdapters.usersTableAdapter usersTableAdapter;
-        private System.Windows.Forms.BindingSource medicincentreDataSetBindingSource;
-        private System.Windows.Forms.BindingSource medicinBindingSource;
-        private medicincentreDataSetTableAdapters.medicinTableAdapter medicinTableAdapter;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn whoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toWhoDataGridViewTextBoxColumn;
@@ -386,5 +316,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.BindingSource usersBindingSource;
+        private medicincentreDataSetTableAdapters.usersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource medicinBindingSource;
+        private medicincentreDataSetTableAdapters.medicinTableAdapter medicinTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource sellBindingSource1;
     }
 }

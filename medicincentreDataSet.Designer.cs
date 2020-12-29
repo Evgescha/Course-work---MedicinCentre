@@ -665,8 +665,7 @@ namespace MedicinCentre {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }
@@ -954,8 +953,7 @@ namespace MedicinCentre {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnname.MaxLength = 50;
@@ -1568,7 +1566,8 @@ namespace MedicinCentre {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = 1;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }
@@ -1915,8 +1914,7 @@ namespace MedicinCentre {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnfio.MaxLength = 50;
@@ -3731,8 +3729,8 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE `warehouse` SET \r\n`count` =`count` + @differenceCount WHERE (`what` = @wha" +
-                "tId)";
+            this._commandCollection[2].CommandText = "UPDATE `warehouse` SET \n`count` =`count` + @differenceCount WHERE (`what` = @what" +
+                "Id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@differenceCount";
@@ -5382,11 +5380,35 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `id`, `who`, `toWho`, `what`, `whenD`, `count` FROM `sell`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `id`, `who`, `toWho`, `what`, `whenD`, `count` FROM `sell` where who=?";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Param1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "who";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `id`, `who`, `toWho`, `what`, `whenD`, `count` FROM `sell` where what=?";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Param1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "what";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5411,6 +5433,61 @@ namespace MedicinCentre.medicincentreDataSetTableAdapters {
             medicincentreDataSet.sellDataTable dataTable = new medicincentreDataSet.sellDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIdWhoSell(medicincentreDataSet.sellDataTable dataTable, global::System.Nullable<int> Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual medicincentreDataSet.sellDataTable GetDataByIdWhoSell(global::System.Nullable<int> Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            medicincentreDataSet.sellDataTable dataTable = new medicincentreDataSet.sellDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWhatBUY(medicincentreDataSet.sellDataTable dataTable, global::System.Nullable<int> Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Param1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

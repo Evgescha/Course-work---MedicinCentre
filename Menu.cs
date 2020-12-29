@@ -58,5 +58,17 @@ namespace MedicinCentre
             this.Hide();
             new Продажа().Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
+        }
+        //reports
+        private void button7_Click(object sender, EventArgs e)
+        {
+            new Report().Show();
+            this.Hide();
+        }
     }
 }

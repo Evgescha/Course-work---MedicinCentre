@@ -27,6 +27,7 @@ namespace MedicinCentre
             this.sellTableAdapter.Fill(this.medicincentreDataSet.sell);
             textBox1.Text = Login.idUser+"";
             fixName();
+            this.Text = "Вы вошли как: " + Login.fio;
         }
 
 
@@ -153,14 +154,21 @@ namespace MedicinCentre
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
                
-                dataGridView1[6, i].Value = Login.fio;
 
                 comboBox2.SelectedItem = comboBox2.Items[
-                                                           medicinBindingSource.Find(
+                                                           usersBindingSource.Find(
                                                                        "id",
-                                                                       int.Parse(dataGridView1[2, i].Value.ToString())
+                                                                       int.Parse(dataGridView1[1, i].Value.ToString())
                                                                        )
                                                            ];
+                dataGridView1[6, i].Value = comboBox2.Text;
+
+                comboBox2.SelectedItem = comboBox2.Items[
+                                                         usersBindingSource.Find(
+                                                                     "id",
+                                                                     int.Parse(dataGridView1[2, i].Value.ToString())
+                                                                     )
+                                                         ];
                 dataGridView1[7, i].Value = comboBox2.Text;
 
                 comboBox3.SelectedItem = comboBox3.Items[
@@ -174,5 +182,28 @@ namespace MedicinCentre
             }
         }
 
+        private void Продажа_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MedicinCentre.Menu.menu.Show();
+        }
+        //мои продажи
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            this.sellTableAdapter.FillByIdWhoSell(medicincentreDataSet.sell, Login.idUser);
+            fixName();
+        }
+        //выбранный сотрудник
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.sellTableAdapter.FillByIdWhoSell(medicincentreDataSet.sell, int.Parse(comboBox2.SelectedValue.ToString()));
+            fixName();
+        }
+        //сброс
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.sellTableAdapter.Fill(medicincentreDataSet.sell);
+            fixName();
+        }
     }
 }
