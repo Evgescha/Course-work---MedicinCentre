@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.whatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,10 +46,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.medicinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicinTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.medicinTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.whatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
@@ -67,12 +67,41 @@
             this.countDataGridViewTextBoxColumn,
             this.Column1});
             this.dataGridView1.DataSource = this.warehouseBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(289, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(275, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(417, 140);
+            this.dataGridView1.Size = new System.Drawing.Size(476, 140);
             this.dataGridView1.TabIndex = 24;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // whatDataGridViewTextBoxColumn
+            // 
+            this.whatDataGridViewTextBoxColumn.DataPropertyName = "what";
+            this.whatDataGridViewTextBoxColumn.HeaderText = "what";
+            this.whatDataGridViewTextBoxColumn.Name = "whatDataGridViewTextBoxColumn";
+            this.whatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.whatDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Лекарство";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // warehouseBindingSource
             // 
@@ -165,40 +194,11 @@
             // 
             this.medicinTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // whatDataGridViewTextBoxColumn
-            // 
-            this.whatDataGridViewTextBoxColumn.DataPropertyName = "what";
-            this.whatDataGridViewTextBoxColumn.HeaderText = "what";
-            this.whatDataGridViewTextBoxColumn.Name = "whatDataGridViewTextBoxColumn";
-            this.whatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.whatDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Лекарство";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 158);
+            this.ClientSize = new System.Drawing.Size(763, 158);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);

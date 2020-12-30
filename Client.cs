@@ -28,8 +28,9 @@ namespace MedicinCentre
             if (textBox1.Text.Length < 1
                 || textBox2.Text.Length < 1
                 || textBox3.Text.Length < 1
-                || textBox4.Text.Length < 1
-                || textBox5.Text.Length < 1)
+                //|| textBox4.Text.Length < 1
+                //|| textBox5.Text.Length < 1
+                )
                 return false;
             return true;
         }
@@ -38,8 +39,8 @@ namespace MedicinCentre
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
+            //textBox4.Text = "";
+            //textBox5.Text = "";
         }
         //add
         private void button1_Click(object sender, EventArgs e)

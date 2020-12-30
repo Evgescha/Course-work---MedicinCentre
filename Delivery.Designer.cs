@@ -54,7 +54,6 @@
             this.whatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medicincentreDataSet1 = new MedicinCentre.medicincentreDataSet();
             this.warehouseTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.warehouseTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
@@ -62,7 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -106,7 +104,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(289, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(462, 177);
+            this.dataGridView1.Size = new System.Drawing.Size(412, 175);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -241,9 +239,9 @@
             this.whatDataGridViewTextBoxColumn1,
             this.countDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.warehouseBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(691, 319);
+            this.dataGridView2.Location = new System.Drawing.Point(306, 319);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(262, 113);
+            this.dataGridView2.Size = new System.Drawing.Size(647, 113);
             this.dataGridView2.TabIndex = 35;
             this.dataGridView2.Visible = false;
             // 
@@ -268,12 +266,7 @@
             // warehouseBindingSource
             // 
             this.warehouseBindingSource.DataMember = "warehouse";
-            this.warehouseBindingSource.DataSource = this.medicincentreDataSet1;
-            // 
-            // medicincentreDataSet1
-            // 
-            this.medicincentreDataSet1.DataSetName = "medicincentreDataSet";
-            this.medicincentreDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.warehouseBindingSource.DataSource = this.medicincentreDataSet;
             // 
             // warehouseTableAdapter
             // 
@@ -283,7 +276,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 195);
+            this.ClientSize = new System.Drawing.Size(713, 193);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
@@ -305,7 +298,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,7 +325,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private medicincentreDataSet medicincentreDataSet1;
         private System.Windows.Forms.BindingSource warehouseBindingSource;
         private medicincentreDataSetTableAdapters.warehouseTableAdapter warehouseTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;

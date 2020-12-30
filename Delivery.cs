@@ -19,9 +19,9 @@ namespace MedicinCentre
 
         private void Delivery_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.warehouse". При необходимости она может быть перемещена или удалена.
+            this.warehouseTableAdapter.Fill(this.medicincentreDataSet.warehouse);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet1.warehouse". При необходимости она может быть перемещена или удалена.
-            this.warehouseTableAdapter.Fill(this.medicincentreDataSet1.warehouse);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.medicin". При необходимости она может быть перемещена или удалена.
             this.medicinTableAdapter.Fill(this.medicincentreDataSet.medicin);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.delivery". При необходимости она может быть перемещена или удалена.
             this.deliveryTableAdapter.Fill(this.medicincentreDataSet.delivery);
@@ -77,31 +77,36 @@ namespace MedicinCentre
         }
 
         private void tryToAddProductInWarehouse(int product, int count) {
-
-            for (int i = 0; i < dataGridView2.Rows.Count-1; i++) {
-                if (int.Parse(dataGridView2[1, i].Value.ToString()) == product) {
-                    dataGridView2[2, i].Value = int.Parse(dataGridView2[2, i].Value.ToString()) + count;
-                    warehouseBindingSource.EndEdit();
-                    this.warehouseTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
-                    this.warehouseTableAdapter.Fill(medicincentreDataSet.warehouse);
-                    return;
-                }
-            }
-
             try
             {
+                medicincentreDataSet.AcceptChanges();
                 DataRowView row = (DataRowView)warehouseBindingSource.AddNew();
                 row[1] = product;
                 row[2] = count;
-
+                
                 warehouseBindingSource.EndEdit();
                 this.warehouseTableAdapter.Update(medicincentreDataSet);
                 this.warehouseTableAdapter.Fill(medicincentreDataSet.warehouse);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                {
+                    if (int.Parse(dataGridView2[1, i].Value.ToString()) == product)
+                    {
+                        medicincentreDataSet.AcceptChanges();
+                        dataGridView2[2, i].Value = int.Parse(dataGridView2[2, i].Value.ToString()) + count;
+                        this.warehouseTableAdapter.Update(((DataRowView)dataGridView2.Rows[i].DataBoundItem).Row);
+                        warehouseBindingSource.EndEdit();
+                        this.warehouseTableAdapter.Fill(medicincentreDataSet.warehouse);
+                        return;
+                    }
+                }
+
             }
+
+
         }
         //edit
         private void button2_Click(object sender, EventArgs e)

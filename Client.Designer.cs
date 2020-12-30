@@ -43,8 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicincentreDataSet = new MedicinCentre.medicincentreDataSet();
             this.usersTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.usersTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +54,8 @@
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -66,6 +66,7 @@
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 31;
             this.label5.Text = "Пароль";
+            this.label5.Visible = false;
             // 
             // textBox4
             // 
@@ -73,6 +74,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(167, 20);
             this.textBox4.TabIndex = 22;
+            this.textBox4.Visible = false;
             // 
             // label4
             // 
@@ -82,6 +84,7 @@
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Логин";
+            this.label4.Visible = false;
             // 
             // textBox3
             // 
@@ -106,6 +109,7 @@
             this.textBox5.PasswordChar = '♥';
             this.textBox5.Size = new System.Drawing.Size(167, 20);
             this.textBox5.TabIndex = 23;
+            this.textBox5.Visible = false;
             // 
             // button2
             // 
@@ -177,6 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -190,19 +195,19 @@
             this.dataGridView1.Location = new System.Drawing.Point(285, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(647, 221);
+            this.dataGridView1.Size = new System.Drawing.Size(397, 221);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // medicincentreDataSet
-            // 
-            this.medicincentreDataSet.DataSetName = "medicincentreDataSet";
-            this.medicincentreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usersBindingSource
             // 
             this.usersBindingSource.DataMember = "users";
             this.usersBindingSource.DataSource = this.medicincentreDataSet;
+            // 
+            // medicincentreDataSet
+            // 
+            this.medicincentreDataSet.DataSetName = "medicincentreDataSet";
+            this.medicincentreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usersTableAdapter
             // 
@@ -214,6 +219,7 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // fioDataGridViewTextBoxColumn
             // 
@@ -221,6 +227,7 @@
             this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО";
             this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
             this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn.Width = 59;
             // 
             // adresDataGridViewTextBoxColumn
             // 
@@ -228,6 +235,7 @@
             this.adresDataGridViewTextBoxColumn.HeaderText = "Адрес";
             this.adresDataGridViewTextBoxColumn.Name = "adresDataGridViewTextBoxColumn";
             this.adresDataGridViewTextBoxColumn.ReadOnly = true;
+            this.adresDataGridViewTextBoxColumn.Width = 63;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -235,6 +243,7 @@
             this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.Width = 77;
             // 
             // loginDataGridViewTextBoxColumn
             // 
@@ -242,6 +251,7 @@
             this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
             this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
             this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            this.loginDataGridViewTextBoxColumn.Visible = false;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -249,6 +259,7 @@
             this.passwordDataGridViewTextBoxColumn.HeaderText = "Пароль";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordDataGridViewTextBoxColumn.Visible = false;
             // 
             // roleDataGridViewTextBoxColumn
             // 
@@ -262,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 246);
+            this.ClientSize = new System.Drawing.Size(694, 246);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
@@ -282,8 +293,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Client_FormClosing);
             this.Load += new System.EventHandler(this.Client_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

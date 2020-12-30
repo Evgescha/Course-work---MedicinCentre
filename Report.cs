@@ -27,7 +27,7 @@ namespace MedicinCentre
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.medicin". При необходимости она может быть перемещена или удалена.
             this.medicinTableAdapter.Fill(this.medicincentreDataSet.medicin);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.users". При необходимости она может быть перемещена или удалена.
-            this.usersTableAdapter.Fill(this.medicincentreDataSet.users);
+            this.usersTableAdapter.FillByOnlyEmployee(this.medicincentreDataSet.users);
 
         }
 
@@ -41,6 +41,7 @@ namespace MedicinCentre
 
         private void fixName()
         {
+            this.usersTableAdapter.Fill(this.medicincentreDataSet.users);
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
 
@@ -70,6 +71,7 @@ namespace MedicinCentre
                 dataGridView1[8, i].Value = comboBox3.Text;
 
             }
+            this.usersTableAdapter.FillByOnlyEmployee(this.medicincentreDataSet.users);
         }
     
         private void button1_Click(object sender, EventArgs e)

@@ -90,9 +90,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 36;
-            this.label2.Text = "Человек";
+            this.label2.Text = "Сотрудник";
             // 
             // dataGridView1
             // 
@@ -102,6 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -158,6 +159,7 @@
             this.whenDDataGridViewTextBoxColumn.HeaderText = "Когда";
             this.whenDDataGridViewTextBoxColumn.Name = "whenDDataGridViewTextBoxColumn";
             this.whenDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.whenDDataGridViewTextBoxColumn.Width = 62;
             // 
             // countDataGridViewTextBoxColumn
             // 
@@ -165,24 +167,28 @@
             this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 91;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Кто продал";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 89;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Кому продал";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 97;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Что продал";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 90;
             // 
             // sellBindingSource
             // 
@@ -231,7 +237,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 51;
-            this.label3.Text = "Лекарства";
+            this.label3.Text = "Лекарство";
             // 
             // medicinTableAdapter
             // 

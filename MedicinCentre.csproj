@@ -191,6 +191,7 @@
     <EmbeddedResource Include="Продажа.resx">
       <DependentUpon>Продажа.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="medicincentreDataSet.xsc">
       <DependentUpon>medicincentreDataSet.xsd</DependentUpon>
     </None>

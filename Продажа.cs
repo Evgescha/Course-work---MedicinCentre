@@ -19,10 +19,12 @@ namespace MedicinCentre
 
         private void Продажа_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.warehouse". При необходимости она может быть перемещена или удалена.
+            this.warehouseTableAdapter.Fill(this.medicincentreDataSet.warehouse);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.medicin". При необходимости она может быть перемещена или удалена.
-            this.medicinTableAdapter.Fill(this.medicincentreDataSet.medicin);
+            this.medicinTableAdapter.FillBy(this.medicincentreDataSet.medicin);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.users". При необходимости она может быть перемещена или удалена.
-            this.usersTableAdapter.Fill(this.medicincentreDataSet.users);
+            this.usersTableAdapter.FillByOnlyClient(this.medicincentreDataSet.users);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "medicincentreDataSet.sell". При необходимости она может быть перемещена или удалена.
             this.sellTableAdapter.Fill(this.medicincentreDataSet.sell);
             textBox1.Text = Login.idUser+"";
@@ -66,7 +68,7 @@ namespace MedicinCentre
 
                     sellBindingSource.EndEdit();
                     this.sellTableAdapter.Update(medicincentreDataSet);
-                                        
+                    tryToAddProductInWarehouse(int.Parse(comboBox3.SelectedValue.ToString()), int.Parse("-"+textBox2.Text));
 
                     clearFields();
                 }
@@ -78,6 +80,40 @@ namespace MedicinCentre
             fixName();
         }
 
+        private void tryToAddProductInWarehouse(int product, int count)
+        {
+            try
+            {
+                medicincentreDataSet.AcceptChanges();
+                DataRowView row = (DataRowView)warehouseBindingSource.AddNew();
+                row[1] = product;
+                row[2] = count;
+
+                warehouseBindingSource.EndEdit();
+                this.warehouseTableAdapter.Update(medicincentreDataSet);
+                this.warehouseTableAdapter.Fill(medicincentreDataSet.warehouse);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                {
+                    if (int.Parse(dataGridView2[1, i].Value.ToString()) == product)
+                    {
+                        medicincentreDataSet.AcceptChanges();
+                        dataGridView2[2, i].Value = int.Parse(dataGridView2[2, i].Value.ToString()) + count;
+                        this.warehouseTableAdapter.Update(((DataRowView)dataGridView2.Rows[i].DataBoundItem).Row);
+                        warehouseBindingSource.EndEdit();
+                        this.warehouseTableAdapter.Fill(medicincentreDataSet.warehouse);
+                        return;
+                    }
+                }
+
+            }
+
+
+        }
+
         //edit
         private void button2_Click(object sender, EventArgs e)
         {
@@ -85,6 +121,12 @@ namespace MedicinCentre
             if (isFill())
                 try
                 {
+                    int currentCount = int.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                    int currentId = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+
+                    int newCount = int.Parse(textBox2.Text);
+                    int newId = int.Parse(comboBox3.SelectedValue.ToString());
+
                     dataGridView1.CurrentRow.Cells[1].Value = int.Parse(textBox1.Text);
                     dataGridView1.CurrentRow.Cells[2].Value = comboBox2.SelectedValue;
                     dataGridView1.CurrentRow.Cells[3].Value = comboBox3.SelectedValue;
@@ -92,7 +134,8 @@ namespace MedicinCentre
                     dataGridView1.CurrentRow.Cells[5].Value = int.Parse(textBox2.Text);
                     sellBindingSource.EndEdit();
                     this.sellTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
-
+                    tryToAddProductInWarehouse(currentId, currentCount);
+                    tryToAddProductInWarehouse(newId, -newCount);
                     clearFields();
                 }
                 catch (Exception ex)
@@ -114,7 +157,10 @@ namespace MedicinCentre
                     sellBindingSource.RemoveAt(dataGridView1.CurrentRow.Index);
                     sellBindingSource.EndEdit();
                     sellTableAdapter.Update(medicincentreDataSet.sell);
+                    int currentCount = int.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                    int currentId = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
 
+                    tryToAddProductInWarehouse(currentId, currentCount);
                 }
                 catch (Exception ex)
                 {
@@ -127,6 +173,8 @@ namespace MedicinCentre
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
+            this.medicinTableAdapter.Fill(this.medicincentreDataSet.medicin);
+            this.usersTableAdapter.Fill(this.medicincentreDataSet.users);
             if (dataGridView1.Rows.Count > 0 && dataGridView1.CurrentRow != null)
             {
               
@@ -146,11 +194,15 @@ namespace MedicinCentre
                 dateTimePicker1.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
                 textBox2.Text =dataGridView1.CurrentRow.Cells[5].Value.ToString();
             }
+            this.medicinTableAdapter.FillBy(this.medicincentreDataSet.medicin);
+            this.usersTableAdapter.FillByOnlyClient(this.medicincentreDataSet.users);
         }
 
 
         private void fixName()
         {
+            this.medicinTableAdapter.Fill(this.medicincentreDataSet.medicin);
+            this.usersTableAdapter.Fill(this.medicincentreDataSet.users);
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
                
@@ -180,6 +232,8 @@ namespace MedicinCentre
                 dataGridView1[8, i].Value = comboBox3.Text;
 
             }
+            this.medicinTableAdapter.FillBy(this.medicincentreDataSet.medicin);
+            this.usersTableAdapter.FillByOnlyClient(this.medicincentreDataSet.users);
         }
 
         private void Продажа_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,5 +259,7 @@ namespace MedicinCentre
             this.sellTableAdapter.Fill(medicincentreDataSet.sell);
             fixName();
         }
+
+        
     }
 }

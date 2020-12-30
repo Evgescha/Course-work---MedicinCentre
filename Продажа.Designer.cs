@@ -60,12 +60,20 @@
             this.medicincentreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicinTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.medicinTableAdapter();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehouseTableAdapter = new MedicinCentre.medicincentreDataSetTableAdapters.warehouseTableAdapter();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.whatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // usersBindingSource
@@ -207,6 +215,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -222,7 +231,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(298, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 251);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 260);
             this.dataGridView1.TabIndex = 46;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -264,6 +273,7 @@
             this.whenDDataGridViewTextBoxColumn.HeaderText = "Когда";
             this.whenDDataGridViewTextBoxColumn.Name = "whenDDataGridViewTextBoxColumn";
             this.whenDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.whenDDataGridViewTextBoxColumn.Width = 62;
             // 
             // countDataGridViewTextBoxColumn
             // 
@@ -271,24 +281,28 @@
             this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 91;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Кто продал";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 89;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Кому продал";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 97;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Что продал";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 90;
             // 
             // sellBindingSource
             // 
@@ -320,11 +334,58 @@
             this.textBox1.TabIndex = 47;
             this.textBox1.Visible = false;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.whatDataGridViewTextBoxColumn1,
+            this.countDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.warehouseBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(298, 143);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(643, 119);
+            this.dataGridView2.TabIndex = 48;
+            this.dataGridView2.Visible = false;
+            // 
+            // warehouseBindingSource
+            // 
+            this.warehouseBindingSource.DataMember = "warehouse";
+            this.warehouseBindingSource.DataSource = this.medicincentreDataSet;
+            // 
+            // warehouseTableAdapter
+            // 
+            this.warehouseTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // whatDataGridViewTextBoxColumn1
+            // 
+            this.whatDataGridViewTextBoxColumn1.DataPropertyName = "what";
+            this.whatDataGridViewTextBoxColumn1.HeaderText = "what";
+            this.whatDataGridViewTextBoxColumn1.Name = "whatDataGridViewTextBoxColumn1";
+            this.whatDataGridViewTextBoxColumn1.Width = 55;
+            // 
+            // countDataGridViewTextBoxColumn1
+            // 
+            this.countDataGridViewTextBoxColumn1.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn1.HeaderText = "count";
+            this.countDataGridViewTextBoxColumn1.Name = "countDataGridViewTextBoxColumn1";
+            this.countDataGridViewTextBoxColumn1.Width = 59;
+            // 
             // Продажа
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 274);
+            this.ClientSize = new System.Drawing.Size(961, 283);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
@@ -349,6 +410,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicincentreDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +449,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource warehouseBindingSource;
+        private medicincentreDataSetTableAdapters.warehouseTableAdapter warehouseTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn whatDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn1;
     }
 }
